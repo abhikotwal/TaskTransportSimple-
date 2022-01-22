@@ -1,0 +1,70 @@
+<!-- <div class="topnav" id="myTopnav">
+  <a (click)="Pagecall('Add')"  [ngClass]="{'active': CurrentManu==='Add'}">ADD DATA</a>
+  <a (click)="Pagecall('List')"  [ngClass]="{'active': CurrentManu==='List'}" >LIST</a>
+
+</div> -->
+
+
+<!--  -->
+<body>
+    <div class="topnav" id="myTopnav">
+        
+        
+          
+        
+    </div>
+
+    <div class="section">
+       
+            <div class="hamburger">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        
+
+   
+
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+           <!--profile image & text-->
+            <!--menu item--><ul>
+                <div class="profile">
+                     <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture">
+                     <h3>Sonia</h3>
+                     <p>Product Manager</p>
+                 </div>
+
+
+                 <li>
+                    <a (click)="Pagecall('List')" [ngClass]="{'active': CurrentManu==='List'}">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Inventory List</span>
+                    </a>
+                </li>
+
+                
+                <li>
+                    <a (click)="Pagecall('LogOut')" [ngClass]="{'active': CurrentManu==='LogOut'}">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Log Out</span>
+                    </a>
+                </li>
+             
+                <!-- <li>
+                    <a (click)="Pagecall('Add')" [ngClass]="{'active': CurrentManu==='Add'}" >
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">ADD Inventory</span>
+                    </a>
+                </li> -->
+               
+            
+            </ul>
+        </div>
+
+   
+</div>
+</div>
+    
+<router-outlet ></router-outlet>

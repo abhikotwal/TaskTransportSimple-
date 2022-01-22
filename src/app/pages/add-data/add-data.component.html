@@ -1,0 +1,94 @@
+
+<div  class="login-wrap lContainer">
+  <h2>Add Inventories</h2>
+
+
+  <div style="margin-top: 20px;" class="row">
+     
+    <div class="col-sm-2" >
+      <button class="btn" (click) ="ViewData()">View Inventory</button>
+    </div>  
+</div>
+  <form style="width: 50% !important;" [formGroup]="Inventoryform"  class="container">
+
+
+    
+   
+
+    <label for="email"><b>Product Name</b><span style="color: red;" *ngIf=" !Inventoryform.get('ProductName')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('ProductName')?.valid" > &#252;</span></label>
+    <input maxlength="20" autocomplete="off"  class="form-control" formControlName="ProductName"  type="text" placeholder="Enter Product Name" name="email" required>
+    <!-- <div *ngIf="Inventoryform.get('ProductName')?.valid" >
+      <div *ngIf="Inventoryform.get('ProductName')?.valid">Title is required</div>
+  </div> -->
+
+    <label for="psw"><b>Product Price</b><span style="color: red;" *ngIf="!Inventoryform.get('ProductPrice')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('ProductPrice')?.valid" > &#252;</span></label>  
+    <input  autocomplete="off" (input)="onenterPrice($event.target)"  maxlength="5" (keypress)="numberOnly($event)" class="form-control" formControlName="ProductPrice"  type="text" placeholder="Enter Product Price" name="psw" required>
+   
+   
+    <label for="psw"><b>Product Description</b><span style="color: red;" *ngIf=" !Inventoryform.get('ProductDescription')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('ProductDescription')?.valid" > &#252;</span></label>
+    <!-- <input class="form-control" formControlName="ProductDescription"  type="text" placeholder="Enter Password" name="psw" required> -->
+    <textarea class="form-control" formControlName="ProductDescription" name="w3review" rows="4" cols="50" required>
+     
+      </textarea>
+  
+    <div style="margin-top: 20px;" class="row">
+      <div class="col-sm-6" >
+        <label for="psw"><b>Discount (%)</b><span style="color: red;" *ngIf=" !Inventoryform.get('DiscountPercentage')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('DiscountPercentage')?.valid" > &#252;</span></label>
+        <input autocomplete="off" (input)="onSearchChange($event.target)"  maxlength="2" (keypress)="numberOnly($event)" class="form-control" formControlName="DiscountPercentage"  type="text"  placeholder="Enter Percentage" name="psw" required>
+    
+        </div>  
+        <div class="col-sm-6" >
+          <label for="psw"><b>Discounted Price</b><span style="color: red;" *ngIf=" !Inventoryform.get('DiscountPrice')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('DiscountPrice')?.valid" > &#252;</span></label>
+          <input readonly  class="form-control" formControlName="DiscountPrice"  type="text"  placeholder="Discounted Price" >
+      
+        </div> 
+        </div>  
+
+    <div  class="row">
+      <div class="col-sm-6" >
+        <label for="psw"><b>Category</b> <span style="color: red;" *ngIf=" !Inventoryform.get('Categories')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('Categories')?.valid" > &#252;</span> </label>
+    
+        <div  class="custom-select" >
+          <select style="width: 90% !important;" (change)="onChange($event)" formControlName="Categories">
+            <option value="Mobile">Mobile</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Mobile Accessories"> Mobile Accessories</option>
+            <!-- <option value="Cloths">Cloths</option> -->
+            
+          </select>
+        </div>
+        </div>
+        <div class="col-sm-6" >
+          <label for="psw"><b>Sub-Category</b> <span style="color: red;" *ngIf=" !Inventoryform.get('Subcategory')?.valid" > *</span><span style="color: green; font-family: wingdings; font-size: 80%;" *ngIf=" Inventoryform.get('Subcategory')?.valid" > &#252;</span></label>
+    
+          <div  class="custom-select" >
+            <select style="width: 90% !important;"  formControlName="Subcategory">
+              <option  *ngFor="let Data of SbCat" value={{Data.value}}>{{Data.value}}</option>
+              
+              
+            </select>
+          </div>
+        </div>
+    </div>
+   
+   
+    
+     
+
+
+    <div style="margin-top: 20px;" class="row">
+      <div class="col-sm-6" >
+        <button *ngIf=" Mode =='Add'" type="submit" (click)="onSubmit()" class="btn">Submit</button>
+        <button *ngIf=" Mode =='Edit'" type="submit" (click)="Update()" class="btn">Update</button>
+        </div>
+        <div class="col-sm-6" >
+          <button type="submit=''" (click)="onSubmit()" class="btn">Reset</button>
+        </div>
+    </div>
+
+
+   
+  </form>
+</div>
+
+

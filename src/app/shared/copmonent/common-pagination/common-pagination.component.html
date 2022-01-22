@@ -1,0 +1,63 @@
+<div class="paging">
+    <div class="row">
+        <!-- <div class="col-2">
+            <div class="info">Showing {{recordsPerPage}}/{{totalRecords}} results</div>
+        </div> -->
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
+            <!-- <ul class="paging__list">
+                <li  [attr.disabled]="activePage >= pageCount" (click)="onClickPage(activePage - 1)" class="paging__item prev"><a   > <span class="material-icons"> chevron_left </span>
+                        Prev</a></li>
+                <li *ngFor="let page of currentpages; trackBy: trackByFn" class="paging__item">
+                    <a (click)="onClickPage(page)" [class.active]="page === activePage">
+                    <ng-container *ngIf="page!=0">
+                        {{ page }}
+                    </ng-container>
+                    <ng-container *ngIf="page==0">
+                        <span class="block">...</span>
+                    </ng-container></a>
+                    <span *ngIf="page === activePage" class="sr-only">(activePage)</span>
+                </li>
+                <li (click)="onClickPage(activePage + 1)" [class.disabled]="activePage >= pageCount" class="paging__item next"><a >Next <span class="material-icons"> chevron_right
+                        </span></a></li>
+            </ul> -->
+
+            <ul class="custom-paging">
+                <li [attr.disabled]="activePage >= pageCount" (click)="onClickPage(activePage - 1)">
+                    <!-- <span><img alt="Prev" src="../../assets/Images/prev-Icon.svg"/></span> -->
+                    <span><<</span>
+                </li>
+                <li *ngFor="let page of currentpages; trackBy: trackByFn">
+                    <!-- <span>1</span> -->
+                    <a (click)="onClickPage(page)" *ngIf="page != activePage">
+                        <!-- [class.active]="page === activePage" -->
+                        <ng-container *ngIf="page!=0">
+                            <span>{{ page }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="page==0">
+                            <span >...</span>
+                        </ng-container></a>
+                        <span *ngIf="page === activePage" class="active">{{activePage}}</span>
+                </li>
+                <li (click)="onClickPage(activePage + 1)" [class.disabled]="activePage >= pageCount" >
+                    <!-- <span><img alt="Next" src="../../assets/Images/next-ixon.svg"/></span> -->
+               <span>>></span> 
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="col-4">
+            <div class="l-page-nav__dd float-right">
+                <label>Items per page</label>
+                <select (change) = "Noofpagechange()" class="form-select" aria-label="Default select example">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+
+
+            </div>
+        </div> -->
+    </div>
+</div>
+
+

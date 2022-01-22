@@ -1,0 +1,29 @@
+<div class="lContainer ">
+
+
+
+  <input type="checkbox" [ngModel]="dots" (ngModelChange)="dots=$event;redraw()">Dots
+  <div style="position:relative" [ngClass]="dots?'dots':null">
+  <div style="position:absolute;top:.5rem" [style.left.px]="dots?30:null">
+  <svg stroke="red" stroke-width="2" fill="transparent" [attr.width]="wrapper.offsetWidth" [attr.heigth]="wrapper.offsetHeight" >
+    <path *ngFor="let path of paths;let i=index" [attr.d]="path" [attr.stroke]="dots?colors[i]:null" />
+  </svg>
+  </div>
+  <div #wrapper class="wrapper">
+      <ng-container *ngFor="let trip of trips; let i = index">
+        <div
+          #airport
+          class="airport"
+          [style.background-color]="dots?colors[i]:null"
+          [attr.data-label]="trip.text"
+          [style.margin-top.px]="trip.level * 50"
+          
+        >
+          <span *ngIf="!dots">{{ trip.text }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+
+</div>

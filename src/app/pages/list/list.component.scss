@@ -1,0 +1,37 @@
+p {
+  font-family: Lato;
+}
+
+
+.wrapper{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap: nowrap;
+  min-height: 68px;
+}
+.wrapper::after{
+  content:' '
+}
+.airport
+{
+  width:80px;
+  text-align: center;
+}
+
+.dots .wrapper{
+  margin-left:30px;
+}
+.dots .airport {
+  width: 1em;
+  height: 1em;
+  border-radius: .5em;
+  background-color: red;
+}
+.dots .airport::after {
+  content: attr(data-label);
+  display: block;
+  width: 8em;
+  margin-top: 20px;
+  text-align: center;
+  margin-left: -3.5em;
+}
